@@ -49,6 +49,10 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
   database: ayame_production
   username: ayame
   password: <%= ENV['AYAME_DATABASE_PASSWORD'] %>

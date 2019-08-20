@@ -1,0 +1,60 @@
+<%= form_for(@item) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  
+  <div class='form-group'>
+    <%= f.label :number, '品番' %> <span class="label label-danger">必須</span>
+    <%= f.text_field :number, class: 'form-control', required: true %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :name, '品名' %> <span class="label label-danger">必須</span>
+    <%= f.text_field :name, class: 'form-control', required: true %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :color_1, 'カラー①' %> <span class="label label-danger">必須</span>
+    <%= f.text_field :color_1, class: 'form-control', required: true  %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :color_2, 'カラー②' %>
+    <%= f.text_field :color_2 %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :color_3, 'カラー③' %>
+    <%= f.text_field :color_3 %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :color_4, 'カラー④' %>
+    <%= f.text_field :color_4 %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :size_1, 'サイズ①' %> <span class="label label-danger">必須</span>
+    <%= f.text_field :size_1, class: 'form-control', required: true %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :size_2, 'サイズ②' %>
+    <%= f.text_field :size_2 %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :size_3, 'サイズ③' %>
+    <%= f.text_field :size_3 %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :size_4, 'サイズ④' %>
+    <%= f.text_field :size_4 %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :price, '値段' %> <span class="label label-danger">必須</span>
+    <%= f.text_field :price, class: 'form-control', required: true %>
+  </div>
+
+  <%= f.submit "登録する", class: 'btn btn-info btn-block' %>
+<% end %>

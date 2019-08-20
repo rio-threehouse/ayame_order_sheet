@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -21,9 +22,18 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(params_item)
+      flash[:success] = 'itemを登録しました'
+      redirect_to root_url
+    else
+      flash.now[:danger] = 'itemの登録に失敗しました'
+      render :edit
+    end
   end
 
   private

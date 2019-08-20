@@ -1,2 +1,15 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="text-center margin-bottom10">
+      <h1>Edit Item</h1>
+      <%= link_to 'item一覧へ', items_path %>
+    </div>
+
+    <%= render 'items/item_form', item: @item %>
+
+    <div class="text-center mt10">
+      <%= link_to '削除する', item_path(@item), method: :delete, class: 'btn btn-danger' %>
+    </div>
+    
+  </div>
+</div>

@@ -19,14 +19,18 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item
+    item.destroy
+    flash[:danger] = 'itemを削除しました'
+    redirect_to root_url
   end
 
   def edit
-    @item = Item.find(params[:id])
+    item
   end
 
   def update
-    @item = Item.find(params[:id])
+    item
     if @item.update(params_item)
       flash[:success] = 'itemを登録しました'
       redirect_to root_url
@@ -40,5 +44,9 @@ class ItemsController < ApplicationController
   
   def params_item
     params.require(:item).permit(:number, :name, :color_1, :color_2, :color_3, :color_4, :size_1, :size_2, :size_3, :size_4, :price)
+  end
+
+  def item
+    @item = Item.find(params[:id])
   end
 end
